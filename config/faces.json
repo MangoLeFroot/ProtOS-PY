@@ -1,0 +1,23 @@
+{
+    "position":
+    {
+        "x": 0,
+        "y": 0
+    },
+    "size":
+    {
+        "width": 128,
+        "height": 32
+    },
+    "default":
+    {
+        "path": "./faces/default.bmp",
+        "mirrored": true,
+        "color":
+        {
+            "r": 255,
+            "g": 229,
+            "b": 0
+        }
+    }
+}
