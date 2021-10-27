@@ -32,6 +32,12 @@ class App:
         self.OptionsFace.brightness = 80
         self.OptionsFace.led_rgb_sequence = "BRG"
         self.OptionsFace.limit_refresh_rate_hz = 90
+        self.OptionsFace.show_refresh_rate = True
+
+        #self.OptionsFace.gpio_slowdown = 0
+        #self.OptionsFace.pwm_dither_bits = 1
+        #self.OptionsFace.pwm_lsb_nanoseconds = 50
+        #self.OptionsFace.pwm_bits = 7
 
         self.MatrixFace = RGBMatrix(options = self.OptionsFace)
         self.CanvasFace = self.MatrixFace.CreateFrameCanvas()

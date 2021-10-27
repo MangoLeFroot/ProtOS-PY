@@ -6,12 +6,12 @@
     },
     "size":
     {
-        "width": 64,
+        "width": 128,
         "height": 32
     },
     "default":
     {
-        "path": "./faces/default.bmp",
+        "path": "./faces/mango.bmp",
         "mirrored": true,
         "color":
         {
