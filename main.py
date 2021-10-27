@@ -7,7 +7,7 @@ __license__ = "MIT"
 import screen
 import server
 
-import sys, signal
+import sys, signal, time
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 
 class App:
@@ -32,7 +32,7 @@ class App:
         self.OptionsFace.brightness = 80
         self.OptionsFace.led_rgb_sequence = "BRG"
         self.OptionsFace.limit_refresh_rate_hz = 90
-        self.OptionsFace.show_refresh_rate = True
+        #self.OptionsFace.show_refresh_rate = True
 
         #self.OptionsFace.gpio_slowdown = 0
         #self.OptionsFace.pwm_dither_bits = 1
@@ -69,8 +69,10 @@ def main():
     #server.start()
 
     while not interrupt_received:
+        #start_time = time.time()
         app.update()
         app.draw()
+        #print("FPS: ", 1.0 / (time.time() - start_time)) # FPS = 1 / time to process loop
 
     app.destroy()
     sys.exit(0)
