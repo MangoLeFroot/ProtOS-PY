@@ -23,14 +23,14 @@ class Screen:
             imgfile.close()
 
     def update(self, canvas: FrameCanvas) -> FrameCanvas:
-        for y in range(0, self.config['size']['height']):
-            for x in range(0, self.config['size']['width']):
-                pixel = self.screenimage[x][y]
-                canvas.SetPixel(self.config['position'][x] + x,
-                                self.config['position'][y] + y,
-                                pixel[x][y][0],
-                                pixel[x][y][1],
-                                pixel[x][y][2])
+        for y in range(0, self.config['size']['height'] - 1):
+            for x in range(0, self.config['size']['width'] - 1):
+                pixel = self.screenimage[y][x]
+                canvas.SetPixel(self.config['position']['x'] + x,
+                                self.config['position']['y'] + y,
+                                pixel[0],
+                                pixel[1],
+                                pixel[2])
 
 #                if self.screeninfo['mirrored']:
 #                    canvas.SetPixel(127 - self.screeninfo['position'][x] + x,

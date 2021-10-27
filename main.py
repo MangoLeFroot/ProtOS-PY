@@ -23,7 +23,7 @@ class App:
     def setup_face(self):
         """ Set up the face matrix """
         self.OptionsFace = RGBMatrixOptions()
-        self.OptionsFace.hardware_mapping = "adafruit-hat-pwm"
+        self.OptionsFace.hardware_mapping = "adafruit-hat"
         self.OptionsFace.cols = 64
         self.OptionsFace.rows = 32
         self.OptionsFace.chain_length = 2
@@ -33,7 +33,7 @@ class App:
         self.OptionsFace.led_rgb_sequence = "BRG"
         self.OptionsFace.limit_refresh_rate_hz = 90
 
-        self.MatrixFace = RGBMatrix(option = self.OptionsFace)
+        self.MatrixFace = RGBMatrix(options = self.OptionsFace)
         self.CanvasFace = self.MatrixFace.CreateFrameCanvas()
 
         self.face = screen.Screen()
