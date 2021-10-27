@@ -23,7 +23,7 @@ class App:
     def setup_face(self):
         """ Set up the face matrix """
         self.OptionsFace = RGBMatrixOptions()
-        self.OptionsFace.hardware_mapping = "adafruit-hat"
+        self.OptionsFace.hardware_mapping = "adafruit-hat-pwm"
         self.OptionsFace.cols = 64
         self.OptionsFace.rows = 32
         self.OptionsFace.chain_length = 2
