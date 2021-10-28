@@ -11,7 +11,7 @@
     },
     "default":
     {
-        "path": "./faces/mango.bmp",
+        "path": "./faces/default.bmp",
         "mirrored": true,
         "color":
         {
@@ -19,5 +19,17 @@
             "g": 229,
             "b": 0
         }
+    },
+    "test":
+    {
+        "path": "./faces/test.bmp",
+        "mirrored": true,
+        "color": null
+    },
+    "bounce":
+    {
+        "path": "./faces/bounce.gif",
+        "mirrored": false,
+        "color": null
     }
 }

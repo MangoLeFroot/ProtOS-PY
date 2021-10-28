@@ -13,6 +13,9 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 class App:
     """ Root application for proto nonesense """
     def __init__(self) -> None:
+        self.CurrentTime = None
+        self.LastTime = time.time()
+
         self.OptionsFace = None
         self.MatrixFace = None
         self.CanvasFace = None
@@ -29,7 +32,7 @@ class App:
         self.OptionsFace.chain_length = 2
         self.OptionsFace.parallel = 1
 
-        self.OptionsFace.brightness = 80
+        #self.OptionsFace.brightness = 80
         self.OptionsFace.led_rgb_sequence = "BRG"
         self.OptionsFace.limit_refresh_rate_hz = 90
         #self.OptionsFace.show_refresh_rate = True
@@ -37,17 +40,22 @@ class App:
         #self.OptionsFace.gpio_slowdown = 0
         #self.OptionsFace.pwm_dither_bits = 1
         #self.OptionsFace.pwm_lsb_nanoseconds = 50
-        #self.OptionsFace.pwm_bits = 7
+        self.OptionsFace.pwm_bits = 7
 
         self.MatrixFace = RGBMatrix(options = self.OptionsFace)
         self.CanvasFace = self.MatrixFace.CreateFrameCanvas()
 
         self.face = screen.Screen()
         self.face.load_config("config", "faces.json")
-        self.face.set_screeninfo("default")
+        self.face.set_screeninfo("bounce")
 
     def update(self):
-        self.CanvasFace = self.face.update(self.CanvasFace)
+        self.CurrentTime = time.time()
+        deltaTime = (self.CurrentTime - self.LastTime) * 1000.0
+
+        self.CanvasFace = self.face.update(self.CanvasFace, deltaTime)
+
+        self.LastTime = self.CurrentTime
 
     def draw(self):
         self.CanvasFace = self.MatrixFace.SwapOnVSync(self.CanvasFace)
