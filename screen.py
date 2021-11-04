@@ -28,7 +28,7 @@ class Screen:
         with Image.open(self.screeninfo['path'], 'r')  as imgfile:
             self.screenimage = []
             self.screenduration = []
-            self.n_frame = 7
+            self.n_frame = 0
 
             if hasattr(imgfile, "n_frames"):
                 for i in range(imgfile.n_frames):
@@ -46,16 +46,17 @@ class Screen:
             imgfile.close()
 
     def update(self, matrix: RGBMatrix, deltaTime: int) -> RGBMatrix:
-        self.elapsed_time = self.elapsed_time + deltaTime
-        if self.elapsed_time >= self.screenduration[self.n_frame]:
-            self.n_frame = self.n_frame + 1
-            self.elapsed_time = 0
+        if self.max_frame > 1:
+            self.elapsed_time = self.elapsed_time + deltaTime
+            if self.elapsed_time >= self.screenduration[self.n_frame]:
+                self.n_frame = self.n_frame + 1
+                self.elapsed_time = 0
 
         if self.n_frame == self.max_frame:
             self.n_frame = 0
 
         matrix.SetImage(self.screenimage[self.n_frame], self.config['position']['x'], self.config['position']['y'])
         if self.screeninfo['mirrored']:
-            matrix.SetImage(ImageOps.mirror(self.screenimage[self.n_frame]), int(self.config['size']['width'] / 2) + self.config['position']['x'], self.config['position']['y'])      
+            matrix.SetImage(ImageOps.mirror(self.screenimage[self.n_frame]), (matrix.width - self.screenimage[self.n_frame].width) + self.config['position']['x'], self.config['position']['y'])      
 
         return matrix

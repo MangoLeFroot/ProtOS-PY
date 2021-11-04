@@ -31,15 +31,8 @@ class App:
         self.OptionsFace.rows = 32
         self.OptionsFace.chain_length = 2
         self.OptionsFace.parallel = 1
-
-        #self.OptionsFace.brightness = 80
         self.OptionsFace.led_rgb_sequence = "BRG"
         self.OptionsFace.limit_refresh_rate_hz = 90
-        #self.OptionsFace.show_refresh_rate = True
-
-        #self.OptionsFace.gpio_slowdown = 0
-        #self.OptionsFace.pwm_dither_bits = 1
-        #self.OptionsFace.pwm_lsb_nanoseconds = 50
         self.OptionsFace.pwm_bits = 7
 
         self.MatrixFace = RGBMatrix(options = self.OptionsFace)
@@ -47,7 +40,7 @@ class App:
 
         self.face = screen.Screen()
         self.face.load_config("config", "faces.json")
-        self.face.set_screeninfo("bounce")
+        self.face.set_screeninfo("default")
 
     def update(self):
         self.CurrentTime = time.time()

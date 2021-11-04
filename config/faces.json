@@ -31,5 +31,11 @@
         "path": "./faces/bounce.gif",
         "mirrored": false,
         "color": null
+    },
+    "mango":
+    {
+        "path": "./faces/mango.png",
+        "mirrored": false,
+        "color": null
     }
 }

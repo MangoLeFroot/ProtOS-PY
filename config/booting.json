@@ -1,0 +1,19 @@
+{
+    "position":
+    {
+        "x": 0,
+        "y": 8
+    },
+    "size":
+    {
+        "width": 16,
+        "height": 15
+    },
+    "logo":
+    {
+        "path": "./faces/mango.bmp",
+        "mirrored": true,
+        "color": null
+    }
+
+}
